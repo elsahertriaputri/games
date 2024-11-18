@@ -1,81 +1,80 @@
 import streamlit as st
-import time
 
-# Improved typewriter effect
-def typewriter(text, speed=0.05):
-    """Display text as if being typed."""
-    output = ""
-    for char in text:
-        output += char
-        st.markdown(f"<p style='display:inline'>{output}</p>", unsafe_allow_html=True)
-        time.sleep(speed)
-    st.markdown("<br>", unsafe_allow_html=True)  # Final line break
+# Konfigurasi affine cipher
+a = 7  # Harus relatif prima dengan 26
+b = 15  # Pergeseran
 
-# Affine Cipher Functions
-def affine_encrypt(text, a, b):
-    """Encrypts text using the Affine Cipher."""
-    encrypted = ""
-    for char in text:
-        if char.isalpha():
-            offset = 65 if char.isupper() else 97
-            encrypted += chr(((a * (ord(char) - offset) + b) % 26) + offset)
+# Kata rahasia
+plaintext = "bukapintu"
+
+# Fungsi enkripsi Affine Cipher
+def affine_encrypt(plaintext, a, b):
+    encrypted_text = ""
+    for char in plaintext:
+        if char.isalpha():  # Hanya mengenkripsi huruf
+            x = ord(char) - ord('a')
+            encrypted_char = chr(((a * x + b) % 26) + ord('a'))
+            encrypted_text += encrypted_char
         else:
-            encrypted += char
-    return encrypted
+            encrypted_text += char  # Non-huruf tetap
+    return encrypted_text
 
-def affine_decrypt(text, a, b):
-    """Decrypts text using the Affine Cipher."""
-    decrypted = ""
-    a_inv = pow(a, -1, 26)  # Modular inverse of a
-    for char in text:
-        if char.isalpha():
-            offset = 65 if char.isupper() else 97
-            decrypted += chr(((a_inv * ((ord(char) - offset) - b)) % 26) + offset)
-        else:
-            decrypted += char
-    return decrypted
+# Enkripsi kata rahasia
+ciphertext = affine_encrypt(plaintext, a, b)
 
-# Initial Setup
-st.set_page_config(page_title="Riddle Breaker: The Encrypted Door", layout="centered")
-st.title("Riddle Breaker: The Encrypted Door")
-st.subheader("Can you uncover the secrets hidden in the code?")
+# Judul website
+st.title("🔒 **Game Riddle: Buka Pintu Misterius** 🔓")
 
-# First Riddle
-typewriter("You stand before a locked door. An ancient code must be cracked to proceed.", speed=0.07)
-st.markdown("---")
-st.write("The code is encrypted with an Affine Cipher.")
-st.write("Clue: The key values are hidden in plain sight.")
-st.write("- 'a' must be **relatively prime** to 26.")
-st.write("- 'b' is a mysterious offset.")
+# Cerita
+st.write("""
+**Kamu terjebak di sebuah ruangan gelap. Di depanmu, ada pintu besar dengan ukiran aneh.**
+Di sisi pintu, terdapat petunjuk tertulis: 
 
-# Input for First Riddle
-a1, b1 = 3, 25  # Hardcoded values for first riddle
-encrypted_word = affine_encrypt("bukapintu", a1, b1)
-user_input = st.text_input(f"Decode this word to unlock the door: `{encrypted_word}`").lower()
+_"Tujuh putaran roda kehidupan dan lima belas langkah ke depan akan membuka jalanmu."_  
+_"Pecahkan kode ini untuk membukanya:"_
+""")
 
-if user_input == "bukapintu":
-    st.success("The door creaks open!")
-    st.balloons()
-    typewriter("The door reveals another clue...", speed=0.07)
+# Gambar pintu tertutup
+st.image(
+    "https://cdn.pixabay.com/photo/2014/04/05/11/39/door-316723_960_720.jpg",  # Ganti dengan gambar pintu tertutup
+    caption="Pintu misterius terkunci...",
+    use_column_width=True,
+)
 
-    # Second Riddle
-    st.markdown("---")
-    typewriter(
-        "In the silence beneath the waves, a forgotten secret lies...\n"
-        "It whispers: SLPTMLE\n"
-        "Clue: It arrives every 7th day and 17th month.\n"
-        "(a = 7, b = 17)",
-        speed=0.07,
+# Tampilkan kata terenkripsi
+st.code(ciphertext, language='plaintext')
+
+# Input jawaban
+user_input = st.text_input("Apa kode rahasianya?", "").strip().lower()
+
+# Cek jawaban
+if user_input:
+    if user_input == plaintext:
+        st.success("🎉 Selamat! Kamu berhasil membuka pintu!")
+        # Gambar pintu terbuka
+        st.image(
+            "https://cdn.pixabay.com/photo/2016/08/03/23/55/door-1560814_960_720.png",  # Ganti dengan gambar pintu terbuka
+            caption="Pintu terbuka lebar!",
+            use_column_width=True,
+        )
+        # Narasi sukses
+        st.write("""
+        Kamu berhasil memecahkan kode dan pintu terbuka lebar.  
+        Di balik pintu, cahaya terang menyinari ruangan. Selamat, kamu keluar dari ruangan misteri ini! 🌟
+        """)
+    else:
+        st.error("❌ Jawaban salah. Coba lagi!")
+        st.write("**Petunjuk:** Ingat, \(7\) adalah kunci, dan ada \(15\) langkah untuk maju.")
+
+# Clue visual tambahan
+with st.expander("🔑 Lihat petunjuk tambahan"):
+    st.write("""
+    - \(a = 7\): "Tujuh roda kehidupan."  
+    - \(b = 15\): "Lima belas langkah ke depan."  
+    Gunakan ini untuk memecahkan kode yang ada.
+    """)
+    st.image(
+        "https://cdn.pixabay.com/photo/2016/04/01/10/03/clock-1296408_960_720.jpg",  # Gambar roda/angka 7
+        caption="Clue: 7 adalah kunci.",
+        use_column_width=True,
     )
-    
-    # Input for Second Riddle
-    a2, b2 = 7, 17
-    encrypted_second_word = "SLPTMLE"  # Encrypted form of the answer
-    user_input2 = st.text_input("Decode this message to move forward:").upper()
-
-    if user_input2 == affine_decrypt(encrypted_second_word, a2, b2).upper():
-        st.success("You solved the second riddle!")
-        typewriter("A hidden path appears before you. The journey continues...", speed=0.07)
-else:
-    if user_input:
-        st.error("The door remains locked. Try again.")
