@@ -47,13 +47,13 @@ if user_input:
         # Narasi sukses
         st.write("""
         Kamu berhasil memecahkan kode dan pintu terbuka lebar.  
-        Di balik pintu, cahaya terang menyinari ruangan. Selamat, kamu keluar dari ruangan misteri ini! 🌟
+        Di balik pintu, kesunyian menerpa. Lanjutkan misteri ini! 🌟
         """)
 
         # Tambahkan teka-teki baru setelah pintu terbuka
         st.write("""
-        **Di bawah gelombang cahaya yang sunyi, rahasia yang terlupakan tetap ada, merajut kisah-kisah yang tak terucapkan oleh gema yang memudar, namun hrhzpspc tetap bersembunyi di antara kita.**  
-        **Kehadirannya ditunggu setiap akhir hari ke-7 dan bulan 17.**  
+        **Di balik gelombang kesunyian, rahasia yang terlupakan tetap ada, merajut kisah-kisah yang tak terucapkan oleh gema yang memudar, namun hrhzpspc tetap bersembunyi di antara kita.**  
+        **Kehadirannya ditunggu setiap akhir hari ke-7 dan bulan ke-15 dalam penanggalan kuno Mesir.**  
         
         **Pecahkan teka-teki berikut untuk melanjutkan:**
         """)
@@ -65,7 +65,7 @@ if user_input:
         
         **Petunjuk:**  
         - Kode ini berhubungan dengan angka 7 dan bulan 17.  
-        - SLPTMLE mengandung sebuah pesan tersembunyi.
+        - hrhzpspc mengandung sebuah pesan tersembunyi.
         """)
 
         # Input jawaban riddle kedua
@@ -77,7 +77,7 @@ if user_input:
                 st.success("🎉 Kamu berhasil memecahkan teka-teki kedua! Gelombang hilang, dan rahasia tersembunyi terbongkar!")
                 st.write("""
                 **Selamat! Kamu telah berhasil keluar dari ruangan misterius ini dan mengungkap semua rahasia tersembunyi.**  
-                Gelombang yang sunyi kini menghilang, dan kamu bisa melihat cahaya yang menerangi jalanmu. Kamu telah menyelesaikan tantangan ini dengan sukses! 🌟
+                Gelombang yang sunyi kini menghilang, tergantikan oleh kekuatan dan kamu bisa melihat cahaya yang menerangi jalanmu. Kamu telah menyelesaikan tantangan ini dengan sukses! 🌟
                 """)
             else:
                 st.error("❌ Jawaban salah. Coba lagi!")
