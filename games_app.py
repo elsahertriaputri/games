@@ -52,8 +52,7 @@ if user_input:
 
         # Tambahkan teka-teki baru setelah pintu terbuka
         st.write("""
-        **Pintu terbuka, di ruangan tersebut tersimpan sebuah gelombang.**  
-        **Di bawah gelombang yang sunyi, rahasia yang terlupakan tetap ada, merajut kisah-kisah yang tak terucapkan oleh gema yang memudar, namun SLPTMLE tetap bersembunyi di antara kita.**  
+        **Di bawah gelombang cahaya yang sunyi, rahasia yang terlupakan tetap ada, merajut kisah-kisah yang tak terucapkan oleh gema yang memudar, namun SLPTMLE tetap bersembunyi di antara kita.**  
         **Kehadirannya ditunggu setiap akhir hari ke-7 dan bulan 17.**  
         
         **Pecahkan teka-teki berikut untuk melanjutkan:**
