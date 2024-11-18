@@ -34,13 +34,6 @@ _"Tujuh putaran roda kehidupan dan lima belas langkah ke depan akan membuka jala
 _"Pecahkan kode ini untuk membukanya:"_
 """)
 
-# Gambar pintu tertutup
-st.image(
-    "https://cdn.pixabay.com/photo/2014/04/05/11/39/door-316723_960_720.jpg",  # Ganti dengan gambar pintu tertutup
-    caption="Pintu misterius terkunci...",
-    use_column_width=True,
-)
-
 # Tampilkan kata terenkripsi
 st.code(ciphertext, language='plaintext')
 
@@ -51,12 +44,6 @@ user_input = st.text_input("Apa kode rahasianya?", "").strip().lower()
 if user_input:
     if user_input == plaintext:
         st.success("🎉 Selamat! Kamu berhasil membuka pintu!")
-        # Gambar pintu terbuka
-        st.image(
-            "https://cdn.pixabay.com/photo/2016/08/03/23/55/door-1560814_960_720.png",  # Ganti dengan gambar pintu terbuka
-            caption="Pintu terbuka lebar!",
-            use_column_width=True,
-        )
         # Narasi sukses
         st.write("""
         Kamu berhasil memecahkan kode dan pintu terbuka lebar.  
@@ -73,8 +60,3 @@ with st.expander("🔑 Lihat petunjuk tambahan"):
     - \(b = 15\): "Lima belas langkah ke depan."  
     Gunakan ini untuk memecahkan kode yang ada.
     """)
-    st.image(
-        "https://cdn.pixabay.com/photo/2016/04/01/10/03/clock-1296408_960_720.jpg",  # Gambar roda/angka 7
-        caption="Clue: 7 adalah kunci.",
-        use_column_width=True,
-    )
