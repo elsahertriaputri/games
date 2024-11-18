@@ -57,14 +57,14 @@ if user_input:
         
         **Pecahkan teka-teki berikut untuk melanjutkan:**
         """)
-        
+        plaintext= "hrhzpspc"
         # Tampilkan teka-teki baru
         st.write("""
         Teka-teki: hrhzpspc adalah sebuah kode yang tersemat dalam gelombang.  
         Gunakan petunjuk yang ada dan temukan jawabannya.
         
         **Petunjuk:**  
-        - Kode ini berhubungan dengan angka 7 dan bulan 17.  
+        - Kode ini berhubungan dengan angka 7 dan bulan 15.  
         - hrhzpspc mengandung sebuah pesan tersembunyi.
         """)
 
