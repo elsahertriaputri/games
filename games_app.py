@@ -25,7 +25,7 @@ ciphertext = affine_encrypt(plaintext, a, b)
 # Judul website
 st.title("🔒 **Game Riddle: Buka Pintu Misterius** 🔓")
 
-# Cerita
+# Cerita awal
 st.write("""
 **Kamu terjebak di sebuah ruangan gelap. Di depanmu, ada pintu besar dengan ukiran aneh.**
 Di sisi pintu, terdapat petunjuk tertulis: 
@@ -49,11 +49,46 @@ if user_input:
         Kamu berhasil memecahkan kode dan pintu terbuka lebar.  
         Di balik pintu, cahaya terang menyinari ruangan. Selamat, kamu keluar dari ruangan misteri ini! 🌟
         """)
+
+        # Tambahkan teka-teki baru setelah pintu terbuka
+        st.write("""
+        **Pintu terbuka, di ruangan tersebut tersimpan sebuah gelombang.**  
+        **Di bawah gelombang yang sunyi, rahasia yang terlupakan tetap ada, merajut kisah-kisah yang tak terucapkan oleh gema yang memudar, namun SLPTMLE tetap bersembunyi di antara kita.**  
+        **Kehadirannya ditunggu setiap akhir hari ke-7 dan bulan 17.**  
+        
+        **Pecahkan teka-teki berikut untuk melanjutkan:**
+        """)
+        
+        # Tampilkan teka-teki baru
+        st.write("""
+        Teka-teki: SLPTMLE adalah sebuah kode yang tersemat dalam gelombang.  
+        Gunakan petunjuk yang ada dan temukan jawabannya.
+        
+        **Petunjuk:**  
+        - Kode ini berhubungan dengan angka 7 dan bulan 17.  
+        - SLPTMLE mengandung sebuah pesan tersembunyi.
+        """)
+
+        # Input jawaban riddle kedua
+        second_input = st.text_input("Apa jawabannya?", "").strip().lower()
+
+        # Cek jawaban untuk teka-teki kedua
+        if second_input:
+            if second_input == "silent":
+                st.success("🎉 Kamu berhasil memecahkan teka-teki kedua! Gelombang hilang, dan rahasia tersembunyi terbongkar!")
+                st.write("""
+                **Selamat! Kamu telah berhasil keluar dari ruangan misterius ini dan mengungkap semua rahasia tersembunyi.**  
+                Gelombang yang sunyi kini menghilang, dan kamu bisa melihat cahaya yang menerangi jalanmu. Kamu telah menyelesaikan tantangan ini dengan sukses! 🌟
+                """)
+            else:
+                st.error("❌ Jawaban salah. Coba lagi!")
+                st.write("**Petunjuk tambahan:** Kode ini memiliki hubungan dengan kata 'silent'.")
+        
     else:
         st.error("❌ Jawaban salah. Coba lagi!")
         st.write("**Petunjuk:** Ingat, \(7\) adalah kunci, dan ada \(15\) langkah untuk maju.")
 
-# Clue visual tambahan
+# Clue visual tambahan untuk teka-teki pertama
 with st.expander("🔑 Lihat petunjuk tambahan"):
     st.write("""
     - \(a = 7\): "Tujuh roda kehidupan."  
