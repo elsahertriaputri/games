@@ -52,7 +52,7 @@ if user_input:
 
         # Tambahkan teka-teki baru setelah pintu terbuka
         st.write("""
-        **Di bawah gelombang cahaya yang sunyi, rahasia yang terlupakan tetap ada, merajut kisah-kisah yang tak terucapkan oleh gema yang memudar, namun SLPTMLE tetap bersembunyi di antara kita.**  
+        **Di bawah gelombang cahaya yang sunyi, rahasia yang terlupakan tetap ada, merajut kisah-kisah yang tak terucapkan oleh gema yang memudar, namun hrhzpspc tetap bersembunyi di antara kita.**  
         **Kehadirannya ditunggu setiap akhir hari ke-7 dan bulan 17.**  
         
         **Pecahkan teka-teki berikut untuk melanjutkan:**
@@ -60,7 +60,7 @@ if user_input:
         
         # Tampilkan teka-teki baru
         st.write("""
-        Teka-teki: SLPTMLE adalah sebuah kode yang tersemat dalam gelombang.  
+        Teka-teki: hrhzpspc adalah sebuah kode yang tersemat dalam gelombang.  
         Gunakan petunjuk yang ada dan temukan jawabannya.
         
         **Petunjuk:**  
