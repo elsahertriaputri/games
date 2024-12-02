@@ -1,11 +1,14 @@
 import streamlit as st
 
-# Konfigurasi affine cipher
-a = 7  # Harus relatif prima dengan 26
-b = 15  # Pergeseran
+# === Konfigurasi affine cipher untuk Game 1 ===
+a1 = 7  # Harus relatif prima dengan 26
+b1 = 15  # Pergeseran
+plaintext1 = "bukapintu"  # Kata rahasia Game 1
 
-# Kata rahasia
-plaintext = "bukapintu"
+# === Konfigurasi affine cipher untuk Game 2 ===
+a2 = 13  # Harus relatif prima dengan 26
+b2 = 6   # Pergeseran
+plaintext2 = "kekuatan"  # Kata rahasia Game 2
 
 # Fungsi enkripsi Affine Cipher
 def affine_encrypt(plaintext, a, b):
@@ -19,78 +22,77 @@ def affine_encrypt(plaintext, a, b):
             encrypted_text += char  # Non-huruf tetap
     return encrypted_text
 
-# Enkripsi kata rahasia
-ciphertext = affine_encrypt(plaintext, a, b)
+# Hasil enkripsi untuk Game 1 dan Game 2
+ciphertext1 = affine_encrypt(plaintext1, a1, b1)
+ciphertext2 = affine_encrypt(plaintext2, a2, b2)
 
-# Judul website
-st.title("🔒 **Game Riddle: Buka Pintu Misterius** 🔓")
+# === Tampilan Streamlit ===
+st.title("🔒 **Game Riddle: Dua Tantangan Misterius** 🔓")
 
-# Cerita awal
+# === Game 1: Buka Pintu Misterius ===
 st.write("""
-**Kamu terjebak di sebuah ruangan gelap. Di depanmu, ada pintu besar dengan ukiran aneh.**
-Di sisi pintu, terdapat petunjuk tertulis: 
+**Kamu terjebak di sebuah ruangan gelap. Di depanmu, ada pintu besar dengan ukiran aneh.**  
+Di sisi pintu, terdapat petunjuk tertulis:  
 
 _"Tujuh putaran roda kehidupan dan lima belas langkah ke depan akan membuka jalanmu."_  
 _"Pecahkan kode ini untuk membukanya:"_
 """)
 
-# Tampilkan kata terenkripsi
-st.code(ciphertext, language='plaintext')
+# Tampilkan kata terenkripsi untuk Game 1
+st.code(ciphertext1, language='plaintext')
 
-# Input jawaban
-user_input = st.text_input("Apa kode rahasianya?", "").strip().lower()
+# Input jawaban untuk Game 1
+user_input1 = st.text_input("Apa kode rahasianya?", "").strip().lower()
 
-# Cek jawaban
-if user_input:
-    if user_input == plaintext:
+# Cek jawaban untuk Game 1
+if user_input1:
+    if user_input1 == plaintext1:
         st.success("🎉 Selamat! Kamu berhasil membuka pintu!")
-        # Narasi sukses
         st.write("""
-        Kamu berhasil memecahkan kode dan pintu terbuka lebar.  
-        Di balik pintu, kesunyian menerpa. Lanjutkan misteri ini! 🌟
+        **Pintu terbuka lebar, tetapi misteri belum selesai.**  
+        Di balik pintu, kesunyian dan teka-teki baru menunggumu. 🌟
         """)
 
-        # Tambahkan teka-teki baru setelah pintu terbuka
+        # === Game 2: Kekuatan Misterius ===
         st.write("""
-        **Di balik gelombang kesunyian, rahasia yang terlupakan tetap ada, merajut kisah-kisah yang tak terucapkan oleh gema yang memudar, namun hrhzpspc tetap bersembunyi di antara kita.**  
-        **Kehadirannya ditunggu setiap akhir hari ke-7 dan bulan ke-15 dalam penanggalan kuno Mesir.**  
-        
-        **Pecahkan teka-teki berikut untuk melanjutkan:**
-        """)
-        plaintext= "hrhzpspc"
-        # Tampilkan teka-teki baru
-        st.write("""
-        Teka-teki: hrhzpspc adalah sebuah kode yang tersemat dalam gelombang.  
-        Gunakan petunjuk yang ada dan temukan jawabannya.
-        
-        **Petunjuk:**  
-        - Kode ini berhubungan dengan angka 7 dan bulan 15.  
-        - hrhzpspc mengandung sebuah pesan tersembunyi.
+        **Tantangan Baru:**  
+        Sebuah kekuatan tersembunyi memanggilmu dari balik bayangan.  
+        Gunakan pengetahuanmu untuk memecahkan kode berikut:
         """)
 
-        # Input jawaban riddle kedua
-        second_input = st.text_input("Apa jawabannya?", "").strip().lower()
+        # Tampilkan kata terenkripsi untuk Game 2
+        st.code(ciphertext2, language='plaintext')
 
-        # Cek jawaban untuk teka-teki kedua
-        if second_input:
-            if second_input == "silent":
-                st.success("🎉 Kamu berhasil memecahkan teka-teki kedua! Gelombang hilang, dan rahasia tersembunyi terbongkar!")
+        # Input jawaban untuk Game 2
+        user_input2 = st.text_input("Apa jawabannya?", "").strip().lower()
+
+        # Cek jawaban untuk Game 2
+        if user_input2:
+            if user_input2 == plaintext2:
+                st.success("🎉 Kamu berhasil memecahkan teka-teki kedua!")
                 st.write("""
-                **Selamat! Kamu telah berhasil keluar dari ruangan misterius ini dan mengungkap semua rahasia tersembunyi.**  
-                Gelombang yang sunyi kini menghilang, tergantikan oleh kekuatan dan kamu bisa melihat cahaya yang menerangi jalanmu. Kamu telah menyelesaikan tantangan ini dengan sukses! 🌟
+                **Selamat! Kamu telah menyelesaikan semua tantangan.**  
+                Cahaya terang menyinari ruangan, dan kebebasan menunggumu.
                 """)
             else:
                 st.error("❌ Jawaban salah. Coba lagi!")
-                st.write("**Petunjuk tambahan:** Kode ini memiliki hubungan dengan kata 'silent'.")
-        
+                st.write("**Petunjuk:** Kekuatan tersembunyi ada di balik kata 'kekuatan'.")
     else:
         st.error("❌ Jawaban salah. Coba lagi!")
         st.write("**Petunjuk:** Ingat, \(7\) adalah kunci, dan ada \(15\) langkah untuk maju.")
 
-# Clue visual tambahan untuk teka-teki pertama
-with st.expander("🔑 Lihat petunjuk tambahan"):
+# Clue tambahan untuk Game 1
+with st.expander("🔑 Lihat petunjuk tambahan untuk membuka pintu"):
     st.write("""
     - \(a = 7\): "Tujuh roda kehidupan."  
     - \(b = 15\): "Lima belas langkah ke depan."  
-    Gunakan ini untuk memecahkan kode yang ada.
+    Gunakan ini untuk memecahkan kode.
+    """)
+
+# Clue tambahan untuk Game 2
+with st.expander("🔑 Lihat petunjuk tambahan untuk tantangan kedua"):
+    st.write("""
+    - \(a = 13\): "Tiga belas lingkaran kekuatan tersembunyi."  
+    - \(b = 6\): "Enam langkah menuju inti kekuatan."  
+    Cari pola tersembunyi di kata terenkripsi.
     """)
