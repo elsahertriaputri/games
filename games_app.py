@@ -6,7 +6,7 @@ b1 = 15  # Pergeseran
 plaintext1 = "bukapintu"  # Kata rahasia Game 1
 
 # === Konfigurasi affine cipher untuk Game 2 ===
-a2 = 13  # Harus relatif prima dengan 26
+a2 = 17  # Harus relatif prima dengan 26
 b2 = 6   # Pergeseran
 plaintext2 = "kekuatan"  # Kata rahasia Game 2
 
@@ -92,7 +92,7 @@ with st.expander("🔑 Lihat petunjuk tambahan untuk membuka pintu"):
 # Clue tambahan untuk Game 2
 with st.expander("🔑 Lihat petunjuk tambahan untuk tantangan kedua"):
     st.write("""
-    - \(a = 13\): "Tiga belas lingkaran kekuatan tersembunyi."  
+    - \(a = 17\): "Tujuh belas lingkaran kekuatan tersembunyi."  
     - \(b = 6\): "Enam langkah menuju inti kekuatan."  
     Cari pola tersembunyi di kata terenkripsi.
     """)
