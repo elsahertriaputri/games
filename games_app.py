@@ -65,6 +65,13 @@ if user_input1:
 
         # Input jawaban untuk Game 2
         user_input2 = st.text_input("Apa jawabannya?", "").strip().lower()
+        # Clue tambahan untuk Game 1
+        with st.expander("🔑 Lihat petunjuk tambahan untuk membuka pintu"):
+            st.write("""
+            - \(a = 7\): "Tujuh roda kehidupan."  
+            - \(b = 15\): "Lima belas langkah ke depan."  
+            Gunakan ini untuk memecahkan kode.
+            """)
 
         # Cek jawaban untuk Game 2
         if user_input2:
@@ -88,12 +95,6 @@ if user_input1:
         st.error("❌ Jawaban salah. Coba lagi!")
         st.write("**Petunjuk:** Ingat, \(7\) adalah kunci, dan ada \(15\) langkah untuk maju.")
 
-# Clue tambahan untuk Game 1
-with st.expander("🔑 Lihat petunjuk tambahan untuk membuka pintu"):
-    st.write("""
-    - \(a = 7\): "Tujuh roda kehidupan."  
-    - \(b = 15\): "Lima belas langkah ke depan."  
-    Gunakan ini untuk memecahkan kode.
-    """)
+
 
 
