@@ -77,6 +77,13 @@ if user_input1:
             else:
                 st.error("❌ Jawaban salah. Coba lagi!")
                 st.write("**Petunjuk:** Kekuatan tersembunyi ada di balik kata 'kekuatan'.")
+        # Clue tambahan untuk Game 2
+        with st.expander("🔑 Lihat petunjuk tambahan untuk tantangan kedua"):
+            st.write("""
+            - \(a = 17\): "Tujuh belas lingkaran kekuatan tersembunyi."  
+            - \(b = 6\): "Enam langkah menuju inti kekuatan."  
+            Cari pola tersembunyi di kata terenkripsi.
+            """)
     else:
         st.error("❌ Jawaban salah. Coba lagi!")
         st.write("**Petunjuk:** Ingat, \(7\) adalah kunci, dan ada \(15\) langkah untuk maju.")
@@ -89,10 +96,4 @@ with st.expander("🔑 Lihat petunjuk tambahan untuk membuka pintu"):
     Gunakan ini untuk memecahkan kode.
     """)
 
-# Clue tambahan untuk Game 2
-with st.expander("🔑 Lihat petunjuk tambahan untuk tantangan kedua"):
-    st.write("""
-    - \(a = 17\): "Tujuh belas lingkaran kekuatan tersembunyi."  
-    - \(b = 6\): "Enam langkah menuju inti kekuatan."  
-    Cari pola tersembunyi di kata terenkripsi.
-    """)
+
